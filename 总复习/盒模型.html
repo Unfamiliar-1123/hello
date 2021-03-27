@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            /* 内边距 */
+            padding: 10px;
+            /* 外边距 */
+            margin: 10px;
+            border: 5px solid lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        content + padding + border + margin
+
+        1.标准盒模型
+            width:200
+            width=content
+
+        2.怪异盒模型
+          IE 或 IE6以下不写doctype会表现怪异
+          解决：在样式里写  box-sizing = border-box（怪异）/ content-box(标准)  怪异盒模型互相转化标准盒模型
+          width = content + padding + border
+
+     -->
+
+
+     <!-- 标准 -->
+     <div class="div1"></div>
+     <!-- 怪异 -->
+
+</body>
+</html>
