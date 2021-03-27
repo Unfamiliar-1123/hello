@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="2_css.css">
 </head>
 <body>
     <!-- 1.选择器
@@ -15,6 +16,52 @@
            紧邻的兄弟元素 -----div + p
            后面所有的 -----div ~ p
            伪类选择器 -----:hover
+           伪元素选择器 ----- ::after  (其中必须有content,写内容，after是在原有基础上后面加内容)
+           群组选择器 ----- div,p
+           属性选择器 -----div{p}
+
+        2.优先级
+           !important >  style  >  id  >  class/伪类  >  标签 /伪元素
+        3.定位
+          absolute
+              绝对定位   定位后空间释放   相对于已定位的最近的祖先元素(如果没有，相对于浏览器)
+          relative
+              相对定位   定位后空间不释放   相对于自己的初始位置
+          fixed
+              固定定位   定位后空间释放   相对于浏览器的可视窗口
+          static
+              默认定位   
+          sticky  
+              黏性定位   吸顶效果
+        4.浮动
+           float:left/right
+           脱离文档流，空间释放，宽高是内容撑起的
+
+          问题：子元素浮动，父元素塌陷
+          解决：（1）父元素添加高度
+                （2）overflow:hidden;
+                 (3)clearfix
+                       ::after{
+                           content:"",
+                           display:block;
+                           clear:both
+                       }
+
     -->
+    <div class="picture"></div>
+    <h2 class="position">communicate</h2>
+    
+    <div class="parent">
+        <div class="son">111</div>
+        <div class="son2">222</div>
+        <div class="clear"></div>
+    </div>
+
+
+
+    
+
+
+    
 </body>
 </html>

@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.parent{
+    width: 500px;
+    height: 5000px;
+    background-color: brown;
+    overflow: hidden;
+    
+}
+.son{
+    background-color:darkturquoise;
+    float: left;
+}
+.son2{
+    background-color: darkmagenta;
+    float: left;
+}
+.clear{
+    clear: both;
+}
+.position{
+    position: sticky;
+    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    top: 0;
+    padding: 5px;
+    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+}
+.picture{
+    width: 100px;
+    height: 1000px;
+    background-color: goldenrod;
+}
