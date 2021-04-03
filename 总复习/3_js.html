@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.js基本数据类型
+           基本  string number boolean null undifined symbol
+           引用  array object
+        typeof判断数据类型
+        typeof "123"     "string"
+        typeof 123       "number"
+        typeof true      "boolean"
+        typeof null      "object"
+        typeof undefined "undefined"
+        typeof [1,2,3]   "object"
+        typeof {name:'zs'}  "object"
+        typeof (函数名)    "function"
+
+
+        2.判断数组和对象
+           （1）Array.isArray(a)     判断是否数组
+           （2）a instanceof Array   判断是否数组
+                a instanceof Object  判断是否对象
+            (3)a.constructor == Array
+               b.constructor == Object
+
+
+
+     -->
+     <script>
+         function aa(){
+            console.log('asdf')
+         }
+
+         console.log( typeof(aa));
+
+
+         var a=[1,2,3];
+         var b={
+             name:'zs'
+         }
+        console.log(Array.isArray(a)) ;
+        console.log(Array.isArray(b)) ;
+
+        console.log( a instanceof Array );
+        console.log( b instanceof Array );
+        console.log( a instanceof Object );
+        console.log( b instanceof Object );
+
+        console.log( a.constructor == Array);
+        console.log( b.constructor == Object);
+        
+
+
+     </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        类：具有相同属性和方法的集合
+
+
+
+     -->
+    <script>
+        var p1 = {
+            name:'ls',
+            age:18,
+            say:function(){
+                console.log("hahaha")
+            }
+        }
+
+        function Person(){
+            this.name='ww',
+            this.age=20,
+            this.say=function(){
+                console.log("lala")
+            }
+
+        }
+        var p2 = new Person();
+        console.log(p2);
+
+
+        function Person(name,age){
+            this.name=name,
+            this.age=age,
+            this.say=function(){
+                console.log(this.name + "lala")
+            }
+
+        }
+        var p3 = new Person('zl',22);
+        console.log(p3);
+        p3.say();
+        var p4 = new Person('ii',24);
+        console.log(p4);
+        p4.say();
+
+    </script>
+</body>
+</html>
