@@ -41,8 +41,31 @@
             }
 
         }
+
+
+        /*
+        
+        原型  prototype
+           函数有一个prototype属性，这个属性是一个指针，指向他的原型对象
+           原型对象下的属性和方法 可以被实例化对象所共享
+           声明类  属性写在构造函数中
+                  方法写在原型下
+           原型下有一个constructor属性，指向他的构造函数
+    
+
+        __proto__实例化对象的属性，指向构造函数的原型
+
+        
+
+    */
+
+        Person.prototype.sex = "girl";
+
+
+
+
         var p3 = new Person('zl',22);
-        console.log(p3);
+        console.log(p3.sex);
         p3.say();
         var p4 = new Person('ii',24);
         console.log(p4);
