@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div2{
+            width: 200px;
+            height: 200px;
+            background-color: darkmagenta;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        事件    事件处理函数   事件源
+     -->
+
+     <div id="div1">
+         instsfhsdfh
+     </div>
+
+     <div id="div2">
+         div2
+         <div id="div3">
+             div3
+         </div>
+     </div>
+
+
+
+    <script>
+        /*
+        
+        
+        */
+        var oDiv1 = document.getElementById('div1');
+        oDiv1.onclick = function(e){
+            console.log('sdfrfr');
+            // 事件源
+            console.log(e.target);
+            // 对当前对象的引用
+            console.log(this)
+        }
+
+
+
+
+        var oDiv2 = document.getElementById('div2');
+        oDiv2.onclick = function(e){
+            console.log(e.target);
+        }
+        var oDiv3 = document.getElementById('div3');
+        oDiv3.onclick = function(e){
+            console.log(e.target);
+        }
+
+    </script>
+</body>
+</html>
