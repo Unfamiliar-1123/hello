@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <ul id="ul1">
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+    </ul>
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        var oBtn = document.getElementById('btn');
+        var oUl = document.getElementById('ul1');
+        //如果先绑定li后生成的元素绑不上事件
+        
+        /*
+        for(var i = 0;i < aLi.length;i++){
+            aLi[i].onclick = function(){
+                console.log(this.innerHTML);
+
+            }
+        }
+        */
+
+        // 这里的li是后生成的元素，上面的事件没有绑上
+        oBtn.onclick = function(){
+            var oLi = document.createElement('li');
+            oLi.innerHTML = Math.random();
+            oUl.appendChild(oLi);
+        }
+
+
+
+        /*    后生成元素绑定问题：
+                 将事件绑定在已存在的父元素身上
+        
+        
+        */
+        oUl.onclick = function(e){
+            // console.log(this.innerHTML)
+            console.log(e.target.tagName)
+            if(e.target.tagName == 'LI'){
+                console.log(e.target.innerHTML)
+            }
+        }
+
+    </script>
+</body>
+</html>
