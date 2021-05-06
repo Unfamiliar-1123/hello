@@ -9,13 +9,13 @@
     <script>
         function fn1(val){
             var a = 20;
-            function fn2(){
+           return function(){
                 a++;
                 console.log(a,val);
             }
-            fn2();
         }
         var f = fn1('hello');
+        f();
         f();
     </script>
 </body>
