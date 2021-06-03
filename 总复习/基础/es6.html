@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        let:1.不存在变量提升
+            2.不允许重复声明
+            3.暂时性死区
+            4.块级作用域
+
+
+     -->
+
+     <script>
+         /*
+        //  不存在变量提升
+         console.log(a);//undefined
+         var a = 20;
+
+         console.log(b);//报错
+         let b = 2;
+
+
+         //不允许重复声明
+
+         //let b = 3;     //报错，上面已经声明一个b,不可重复声明
+
+
+         //暂时性死区
+         let c = 100;
+         function fn2(){
+             console.log(c);
+             let c = 120;         //报错，第一个C未定义，函数外部的在函数内部不起作用，块级作用域
+             console.log(c);
+         }
+         fn2();
+         */
+
+
+         //块级作用域
+
+
+
+         const obj = {
+             name : 'zhangsan',
+             age : 20
+         }
+
+         Object.freeze();//将对象冻结，obj中的值不能被改变
+         obj.name = 'lisi';
+         console.log(obj);
+
+     </script>
+</body>
+</html>
