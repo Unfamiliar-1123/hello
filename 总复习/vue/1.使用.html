@@ -6,6 +6,47 @@
     <title>Document</title>
 </head>
 <body>
+<div id="root">
+    {{msg}}
+    {{a}}
+
+    <hr>
+
+    <ul>
+        <li v-for="val in arr">{{val}}</li>
+    </ul>
+
+    <span v-html="msg"></span>
+    <span v-text="msg"></span>
+
+    <!-- 绑定事件 -->
+    <button v-on:click = "fn()">click</button> 
+    <!-- 绑定事件简写 -->
+    <button @click = "fn($event)">点击</button> 
     
+</div>
+<div></div>
+
+
+    <script src="vue.js"></script>
+    <script>
+       let vm =  new Vue({
+            //挂载元素
+            el:"#root",
+            //数据
+            data:{
+                msg:"哈哈哈",//必须在挂载元素中
+                a:"6666",
+                arr:["lucy","lily","jackson"]
+            },
+            methods:{
+                fn(event){
+                    console.log(event);
+                    console.log("lalal");
+                }
+            }
+        })
+
+    </script>
 </body>
 </html>

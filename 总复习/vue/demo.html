@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 点击按钮使数组中减少最后一个元素 -->
+
+    <div id="div1">
+        <ul>
+            <li v-for = "val in array">{{val}}</li>
+        </ul>
+
+        <button @click = "fn()">click</button>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+       let vm =  new Vue({
+           el:"#div1",
+           data:{
+               array:["111","222","333","444"]
+           },
+           methods:{
+               fn(){
+                //    console.log(this.array)
+                vm.array.pop();
+                   
+               }
+           }
+       })
+
+    </script>
+</body>
+</html>
