@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            background-color: hotpink;
+        }
+        .b{
+            color: greenyellow;
+        }
+        .c{
+            border: 1px solid peru;
+        }
+    </style>
+</head>
+<body>
+    <div id="div5">
+        <!-- <div v-bind:id = "myId"></div> -->
+        <div :id = "myId"></div>
+        <!-- 对象方式 -->
+        <div :class = "{a:isA,b:isB,c:isC}">good job</div>
+        <!-- 数组方式 -->
+        <div :class = "[classA,classB]">good job</div>
+
+        <h2 :style = "[styleA,styleB,styleC]">h2header</h2>
+        <h2 :style = "subjectObject">brilliant</h2>
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#div5",
+            data:{
+                myId:"div1",
+                isA:true,
+                isB:true,
+                // isC:false
+                isC:true,
+                classA:'a',
+                classB:'b',
+                styleA:{
+                    width:"200px"
+                },
+                styleB:{
+                    height:"300px"
+                },
+                styleC:{
+                    background:"pink"
+                },
+                subjectObject:{
+                    width:"200px",
+                    height:"200px",
+                    background:"purple"
+                }
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

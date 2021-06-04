@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block1{
+            width: 500px;
+            height: 500px;
+            background-color: coral;
+        }
+        .block2{
+            width: 500px;
+            height: 500px;
+            background-color: darkorchid;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- 
+        v-show  将display赋值为none/block    频繁切换时使用
+        v-if 将语句取消   不频繁切换时使用
+
+     -->
+    
+
+    <div class="div4">
+        <button @click = "fn()">click</button>
+        <!-- <div class="block" v-show = "true"></div> -->
+        <!-- <div class="block" v-show = "isShow"></div> -->
+        <div class="block1" v-if = "isShow">11111</div>
+        <div class="block2" v-else = "!isShow">22222</div>
+
+        <ul>
+            <li v-if="type == 'A'">1</li>
+            <li v-else-if="type =='B'">2</li>
+            <li v-else-if="type =='C'">3</li>
+        </ul>
+    </div>
+    
+
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:".div4",
+            data:{
+                isShow:true,
+                type:'B'
+            },
+            methods:{
+                fn(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

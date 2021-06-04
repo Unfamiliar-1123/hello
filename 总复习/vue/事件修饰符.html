@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div3">
+        <a href="http://www.baidu.com" @click = "fn($event)">百度</a>
+        <input type="text" @keyup.enter = "f1($event)">
+    </div>
+    
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#div3",
+            data:{
+
+            },
+            methods:{
+                fn(e){
+                    console.log('6666');
+                    e.preventDefault();//阻止默认行为
+                },
+                f1(event){
+                    // console.log('2222')
+                    // console.log(event.keyCode);
+                    console.log('回车');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
