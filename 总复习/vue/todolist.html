@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 500px;
+            /* 居中 */
+            margin: 0 auto;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+        }
+        .active{
+            background-color: darksalmon;
+        }
+        .right{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h3>todolist</h3>
+        <hr>
+        <div>
+            名称：<input type="text" v-model = "proName" placeholder="请输入商品名称">
+            价格：<input type="number" v-model = "proPrice" placeholder="请输入商品价格">
+            <button @click = "add()">添加</button>
+        </div>
+        <div>
+            <input type="text">
+            <button>搜索</button>
+        </div>
+        <ul>
+            <li  
+            v-for = "(obj,index) in list"
+            @click="change(obj)"
+            :class = "{active:obj.isActive}"
+            >
+                <input type="checkbox" v-model="obj.isActive">
+                <span>{{obj.name}}</span>
+                <div class="right">
+                    <span>{{obj.price}}</span>
+                    <span>[X]</span>
+                </div>
+                
+            </li>
+        </ul>
+        <div>
+            <button>删除选中</button>
+            <span>总价：{{total()}}</span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {
+                        name:"星黛露",
+                        price:220,
+                        isActive:false
+                    },
+                    {
+                        name:"达菲熊",
+                        price:200,
+                        isActive:false
+                    }
+                ],
+                proName:"",
+                proPrice:0,
+                
+            },
+            methods:{
+                add(){
+                    this.list.push({
+                        name:this.proName,
+                        price:this.proPrice,
+                        isActive:false
+                    })
+                    this.proName = "";
+                    this.proPrice = 0;
+                    
+                },
+                change(obj){
+                    obj.isActive = !obj.isActive
+                },
+                total(){
+                    let sum = 0;
+                    this.list.forEach(function(obj){
+                        if(obj.isActive){
+                            // 转化成数字
+                            sum += Number.parseFloat(obj.price);
+                        }
+                    })
+                    return sum;
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

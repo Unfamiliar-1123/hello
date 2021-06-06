@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="myValue">   <button @click = "add()">add</button>
+        <ul>
+            <li v-for = "(obj,index) in list" @click = "fn(obj)" :class = "{red:obj.isChecked}">{{obj.name}}
+                <button @click.stop = "remove(index)">×</button>
+            </li>
+            
+        </ul>
+
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {
+                        name:"eat",
+                        isChecked:false
+                    },
+                    {
+                        name:"sleep",
+                        isChecked:false
+                    }
+                ],
+                myValue:""
+            },
+            methods:{
+                add(){
+                    this.list.push({
+                        name:this.myValue,
+                        isChecked:false
+                    });
+                },
+                fn(obj){
+                    obj.isChecked = !obj.isChecked;
+                },
+                remove(index){
+                    // console.log(index)
+                    this.list.splice(index,1)
+
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
