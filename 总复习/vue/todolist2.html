@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>todolist</title>
     <style>
         #app{
             width: 500px;
-            /* 居中 */
             margin: 0 auto;
         }
         ul{
@@ -19,48 +18,63 @@
             height: 50px;
             line-height: 50px;
         }
-        .active{
-            background-color: darksalmon;
-        }
         .right{
             float: right;
+        }
+        #error{
+            cursor: pointer;
+        }
+        button{
+            cursor: pointer;
+        }
+        .active{
+            color: coral;
         }
     </style>
 </head>
 <body>
+
     <div id="app">
-        <h3>todolist</h3>
+
+        <h2>todolist</h2>
         <hr>
         <div>
-            名称：<input type="text" v-model = "proName" placeholder="请输入商品名称">
-            价格：<input type="number" v-model = "proPrice" placeholder="请输入商品价格">
+            名称：<input type="text" placeholder="请输入添加商品名称" v-model="proName">
+            价格：<input type="number" placeholder="请输入添加商品价格" v-model="proPrice">
             <button @click = "add()">添加</button>
         </div>
         <div>
-            <input type="text" v-model = "searchValue" placeholder="请输入搜索内容" @keyup="search()">
+            <input type="text" placeholder="请输入搜索商品名称" v-model = "searchValue" @keyup = "search()">
             <button @click = "search()">搜索</button>
         </div>
-        <ul>
-            <li  
+        <ul >
+            <li 
             v-for = "(obj,index) in list"
-            @click="change(obj)"
+            @click = "change(obj)"
             :class = "{active:obj.isActive}"
-            v-if="obj.isInclude"
+            v-if = "obj.isInclude"
+            
             >
-                <input type="checkbox" v-model="obj.isActive">
+                <input type="checkbox" v-model = "obj.isActive">
                 <span>{{obj.name}}</span>
                 <div class="right">
                     <span>{{obj.price}}</span>
-                    <span @click.stop = "del(index)">[X]</span>
+                    <span id="error" @click.stop = "del(index)">[×]</span>
                 </div>
                 
             </li>
+
+            
+            
         </ul>
         <div>
             <button @click = "delAll()">删除选中</button>
             <span>总价：{{total()}}</span>
         </div>
+
+
     </div>
+
     <script src="vue.js"></script>
     <script>
         let vm = new Vue({
@@ -68,14 +82,14 @@
             data:{
                 list:[
                     {
-                        name:"星黛露",
-                        price:220,
+                        name:"口红",
+                        price:229,
                         isActive:false,
                         isInclude:true
                     },
                     {
-                        name:"达菲熊",
-                        price:200,
+                        name:"眼影",
+                        price:118,
                         isActive:false,
                         isInclude:true
                     }
@@ -83,9 +97,10 @@
                 proName:"",
                 proPrice:"",
                 searchValue:""
-                
+
             },
             methods:{
+
                 add(){
                     this.list.push({
                         name:this.proName,
@@ -95,7 +110,6 @@
                     })
                     this.proName = "";
                     this.proPrice = "";
-                    
                 },
                 change(obj){
                     obj.isActive = !obj.isActive
@@ -104,7 +118,6 @@
                     let sum = 0;
                     this.list.forEach(function(obj){
                         if(obj.isActive){
-                            // 转化成数字
                             sum += Number.parseFloat(obj.price);
                         }
                     })
@@ -127,10 +140,11 @@
                             obj.isInclude = false;
                         }
                     })
-                }
 
+                }
             }
         })
     </script>
+    
 </body>
 </html>
