@@ -7,33 +7,44 @@
 </head>
 <body>
     
-    <!-- 计算属性结果会被缓存 -->
 
     <div id="app">
-        <p>{{firstName}}</p>
-        <p>{{lastName}}</p>
-        <p>全称：{{fullName}}</p>
+        <zujianming></zujianming>
 
     </div>
+    <hr>
 
-
+    <div id="app2">
+        <zujianming></zujianming>
+    </div>
     <script src="vue.js"></script>
     <script>
+
+        Vue.component("zujianming",{
+            template:"<div><h1>lalalala</h1><p>hhhhhh</p></div>"
+        })
         let vm = new Vue({
             el:"#app",
             data:{
-                firstName:"Alsa",
-                lastName:"Wollen"
-            },
-            methods:{
 
             },
-            computed:{
-                fullName(){
-                    return this.firstName+" "+this.lastName;
-                }
+            methods:{
+                
             }
         })
+        let vm2 = new Vue({
+            el:"#app2",
+            data:{
+
+            },
+            methods:{
+                
+            }
+        })
+
+
+
+
     </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <hello title="标题" content="内容">
+            <h2 slot="slot1">first</h2>
+            <div slot="slot2">
+                <a href="#">dododododod</a>
+                <img src="https://img2.baidu.com/it/u=2483939626,4042353635&fm=26&fmt=auto&gp=0.jpg" alt="">
+            </div>
+        </hello>
+        <hello title="标题eg" content="内容eg"></hello>
+    </div>
+    <div id="app2">
+        
+    </div>
+    <hr>
+    <template id="temp">
+        <div>
+            <slot name = "slot1"></slot>
+            <h2>标题:{{title}}</h2>
+            <p @click = "a">内容:{{content}}</p>
+            内容是：<slot name = "slot2"></slot>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            components:{
+                "hello":{
+                    template:"#temp",
+                    props:["title","content"],
+                    methods:{
+                        a(){
+                    console.log("lalala");
+                    console.log(this.title);
+                            }
+                    }
+                }
+            },
+            data:{
+
+            },
+            methods:{
+                
+
+            }
+        })
+    </script>
+
+</body>
+</html>

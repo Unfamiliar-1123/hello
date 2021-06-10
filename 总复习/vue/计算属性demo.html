@@ -7,33 +7,30 @@
 </head>
 <body>
     
-    <!-- 计算属性结果会被缓存 -->
-
     <div id="app">
-        <p>{{firstName}}</p>
-        <p>{{lastName}}</p>
-        <p>全称：{{fullName}}</p>
+
+        <p>{{message}}</p>
+        <p>{{reversedMessage}}</p>
 
     </div>
-
 
     <script src="vue.js"></script>
     <script>
         let vm = new Vue({
             el:"#app",
             data:{
-                firstName:"Alsa",
-                lastName:"Wollen"
+                message:"helloworld"
             },
             methods:{
 
             },
             computed:{
-                fullName(){
-                    return this.firstName+" "+this.lastName;
+                reversedMessage(){
+                    return this.message.split("").reverse().join("");
                 }
             }
         })
     </script>
+
 </body>
 </html>
