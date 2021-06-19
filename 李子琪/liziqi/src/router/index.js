@@ -1,33 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import movie from '../views/movie.vue'
-import music from '../views/music.vue'
-import book from '../views/book.vue'
-import picture from '../views/picture.vue'
+import Movie from './../views/Movie'
+import Music from './../views/Music'
+import Book from './../views/Book'
+import Photo from './../views/Photo'
 
 
-Vue.use(VueRouter)
+//Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',name: 'movie',component:movie
+    path: '/',
+    redirect:'/movie'
+  },{
+    path:'/movie',
+    component:Movie
   },
   {
-    path: '/music',name: 'music',component:music
+    path:'/music',
+    component:Music
   },
   {
-    path: '/book',name: 'book',component:book
+    path:'/book',
+    component:Book
   },
   {
-    path: '/picture',name: 'picture',component:Chat
-  },
+    path:'/photo',
+    component:Photo
+  }
   
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+// const router = new VueRouter({
+//   mode: 'history',
+//   base: process.env.BASE_URL,
+//   routes
+// })
 
-export default router
+// export default router
